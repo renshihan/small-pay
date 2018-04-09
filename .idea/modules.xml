@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/small-pay.iml" filepath="$PROJECT_DIR$/small-pay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/small-pay-common/small-pay-common.iml" filepath="$PROJECT_DIR$/small-pay-common/small-pay-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/small-pay-core/small-pay-core.iml" filepath="$PROJECT_DIR$/small-pay-core/small-pay-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/small-pay-server/small-pay-server.iml" filepath="$PROJECT_DIR$/small-pay-server/small-pay-server.iml" />
     </modules>
   </component>
 </project>
