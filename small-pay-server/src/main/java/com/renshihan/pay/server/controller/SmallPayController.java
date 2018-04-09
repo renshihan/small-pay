@@ -19,4 +19,5 @@ public class SmallPayController {
         log.info("进入测试服务hello...");
         return "hello";
     }
+
 }
