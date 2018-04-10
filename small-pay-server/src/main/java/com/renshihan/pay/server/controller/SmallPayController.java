@@ -21,5 +21,4 @@ public class SmallPayController {
         log.info("返回数据:{}",msg);
         return msg;
     }
-
 }
