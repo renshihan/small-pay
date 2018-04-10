@@ -17,7 +17,9 @@ public class SmallPayController {
 
     public @ResponseBody String hello(){
         log.info("进入测试服务hello...");
-        return "hello,傻白甜同学";
+        String msg="hello,傻白甜同学";
+        log.info("返回数据:{}",msg);
+        return msg;
     }
 
 }
