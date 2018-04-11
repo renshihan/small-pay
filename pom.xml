@@ -10,7 +10,12 @@
 		<module>small-pay-core</module>
 		<module>small-pay-server</module>
 		<module>small-pay-common</module>
-	</modules>
+		<module>small-pay-frame</module>
+        <module>small-pay-channel</module>
+        <module>small-pay-gateway</module>
+        <module>small-pay-security</module>
+        <module>small-pay-domain</module>
+    </modules>
 	<packaging>pom</packaging>
 
 	<name>small-pay</name>
@@ -19,7 +24,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.3.RELEASE</version>
+		<version>1.5.2.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -45,14 +50,32 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Camden.SR6</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<build>
 		<plugins>
+			<!--<plugin>-->
+				<!--<groupId>org.springframework.boot</groupId>-->
+				<!--<artifactId>spring-boot-maven-plugin</artifactId>-->
+				<!--<configuration>-->
+					<!--<mainClass>com.renshihan.pay.server.SmallPayApplication</mainClass>-->
+				<!--</configuration>-->
+			<!--</plugin>-->
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<mainClass>com.renshihan.pay.server.SmallPayApplication</mainClass>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
 		</plugins>

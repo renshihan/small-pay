@@ -1,5 +1,0 @@
-spring:
-  application:
-    name: Small Pay Server
-server:
-  port: 8080

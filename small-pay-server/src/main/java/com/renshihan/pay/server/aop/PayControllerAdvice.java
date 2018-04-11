@@ -1,14 +1,14 @@
 package com.renshihan.pay.server.aop;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
  * @author renshihan@winchannel.net
  * @date 2018/4/10 17:50
  */
-@ControllerAdvice("com.renshihan.pay.server.controller")
+@RestControllerAdvice("com.renshihan.pay.server.controller")
 @Slf4j
 public class PayControllerAdvice {
     @ModelAttribute
