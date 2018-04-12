@@ -1,16 +1,23 @@
 package com.renshihan.pay.server.aop;
 
+import com.renshihan.pay.common.enums.NoChannelExceptionCodes;
 import com.renshihan.pay.common.exception.NoChannelException;
+import com.renshihan.pay.common.utils.JsonUtil;
 import com.renshihan.pay.domain.merchant.MerchantRequest;
 import com.renshihan.pay.domain.merchant.MerchantResponse;
-import com.renshihan.pay.server.feign.ISecurityService;
+import com.renshihan.pay.server.feign.ISecurityClient;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.io.IOUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author renshihan@winchannel.net
@@ -21,27 +28,43 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class ExceptionAdvice {
     @Autowired
     @Lazy
-    private ISecurityService iSecurityService;
+    private ISecurityClient iSecurityClient;
+    private static final String HTTP_CONTENT_TYPE = "Content-Type";
+
     //此处可做统计功能
-    @ResponseBody
-    @ExceptionHandler(value = NoChannelException.class)
-    public MerchantResponse noChannelExceptionHandle(@RequestBody MerchantRequest merchantRequest, NoChannelException e){
-        log.error("异常拦截器拦截异常---[{}]",merchantRequest);
-
-        return buildFailseMerchantResponse(merchantRequest,e);
-
+    @ExceptionHandler(value = {NoChannelException.class})
+    public @ResponseBody
+    MerchantResponse noChannelExceptionHandle(NoChannelException e) {
+        log.info("捕获异常----{}:{}", e.getCode(), e.getMessage());
+        //获取body
+        return buildFailseMerchantResponse(e);
     }
 
-    private MerchantResponse buildFailseMerchantResponse(MerchantRequest merchantRequest,NoChannelException e){
-        MerchantResponse merchantResponse=new MerchantResponse();
+    //是对spring服务间传送时出现错误的异常补充
+    @ExceptionHandler(value = {Exception.class})
+    public @ResponseBody
+    MerchantResponse exceptionHandle(HttpServletRequest httpServletRequest, Exception e) {
+        //判断是否是由
+        log.error("捕获Exception异常", e);
+        return noChannelExceptionHandle(conventNoChannelException(httpServletRequest));
+    }
+
+    private NoChannelException conventNoChannelException(HttpServletRequest httpServletRequest) {
+        String content_type = httpServletRequest.getHeader(HTTP_CONTENT_TYPE);
+        log.error("[检查http请求content_type..]---{}", content_type);
+        if (!MediaType.APPLICATION_JSON_UTF8_VALUE.contains(content_type)) {
+            return new NoChannelException(NoChannelExceptionCodes.NC9998);
+        }
+        //可添加其他检测
+        return new NoChannelException(NoChannelExceptionCodes.NC9999);
+    }
+
+    private MerchantResponse buildFailseMerchantResponse(NoChannelException e) {
+        MerchantResponse merchantResponse = new MerchantResponse();
         merchantResponse.setResultCode(e.getCode());
         merchantResponse.setResultMsg(e.getMessage());
-        if(null!=merchantRequest){
-            log.error("商户http请求数据异常");
-            merchantResponse.setAmount(merchantRequest.getAmount());
-            merchantResponse.setOrderId(merchantRequest.getOrderId());
-        }
-        merchantResponse.setSign(iSecurityService.getSign(merchantResponse));
+        merchantResponse.setSign(iSecurityClient.getSign(merchantResponse));
+        log.info("返回数据-----{}", merchantResponse);
         return merchantResponse;
     }
 

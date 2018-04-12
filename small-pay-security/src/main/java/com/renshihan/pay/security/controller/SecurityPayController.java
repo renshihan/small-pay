@@ -1,6 +1,5 @@
 package com.renshihan.pay.security.controller;
 
-import com.renshihan.pay.domain.channel.ChannelRequest;
 import com.renshihan.pay.domain.merchant.MerchantResponse;
 import com.renshihan.pay.security.service.ISecurityPayService;
 import lombok.extern.slf4j.Slf4j;

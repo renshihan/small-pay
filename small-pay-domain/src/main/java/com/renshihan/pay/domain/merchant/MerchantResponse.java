@@ -16,6 +16,7 @@ public class MerchantResponse implements Serializable{
     private String amount;  //分为单位
     private String resultCode;  //成功 失败 处理中
     private String resultMsg;   //返回信息说明
+
     @Override
     public String toString() {
         return "MerchantResponse{" +
@@ -23,6 +24,8 @@ public class MerchantResponse implements Serializable{
                 ", merchantId='" + merchantId + '\'' +
                 ", sign='" + sign + '\'' +
                 ", amount='" + amount + '\'' +
+                ", resultCode='" + resultCode + '\'' +
+                ", resultMsg='" + resultMsg + '\'' +
                 '}';
     }
 }
