@@ -7,7 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="small-pay-channel" />
-        <module name="small-pay-common" />
+        <module name="small-pay-common-redis" />
         <module name="small-pay-core" />
         <module name="small-pay-domain" />
         <module name="small-pay-frame" />
@@ -20,6 +20,7 @@
       <module name="small-pay" target="1.8" />
       <module name="small-pay-channel" target="1.8" />
       <module name="small-pay-common" target="1.8" />
+      <module name="small-pay-common-redis" target="1.8" />
       <module name="small-pay-core" target="1.8" />
       <module name="small-pay-domain" target="1.8" />
       <module name="small-pay-frame" target="1.8" />

@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/small-pay.iml" filepath="$PROJECT_DIR$/small-pay.iml" />
       <module fileurl="file://$PROJECT_DIR$/small-pay-channel/small-pay-channel.iml" filepath="$PROJECT_DIR$/small-pay-channel/small-pay-channel.iml" />
       <module fileurl="file://$PROJECT_DIR$/small-pay-common/small-pay-common.iml" filepath="$PROJECT_DIR$/small-pay-common/small-pay-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/small-pay-common/small-pay-common-redis/small-pay-common-redis.iml" filepath="$PROJECT_DIR$/small-pay-common/small-pay-common-redis/small-pay-common-redis.iml" />
       <module fileurl="file://$PROJECT_DIR$/small-pay-core/small-pay-core.iml" filepath="$PROJECT_DIR$/small-pay-core/small-pay-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/small-pay-domain/small-pay-domain.iml" filepath="$PROJECT_DIR$/small-pay-domain/small-pay-domain.iml" />
       <module fileurl="file://$PROJECT_DIR$/small-pay-frame/small-pay-frame.iml" filepath="$PROJECT_DIR$/small-pay-frame/small-pay-frame.iml" />
