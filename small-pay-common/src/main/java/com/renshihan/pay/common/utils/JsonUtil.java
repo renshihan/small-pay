@@ -3,14 +3,13 @@ package com.renshihan.pay.common.utils;
 /**
  * Created by Administrator on 2016/7/12 0012.
  */
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
+import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import lombok.extern.slf4j.Slf4j;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,123 +22,80 @@ import java.util.Map;
 @Slf4j
 public final class JsonUtil {
 
+
     private static Gson gson = null;
 
-    static {
-        if (gson == null) {
-            gson = new Gson();
-        }
+    static{
+        gson  = new Gson();
     }
 
-
-    private JsonUtil() {
+    public static synchronized Gson newInstance(){
+        if(gson == null){
+            gson =  new Gson();
+        }
+        return gson;
     }
 
-    /**
-     * 将POJO转为JSON
-     */
-    public static <T> String toJson(T obj) {
-        String gsonString = null;
-        if (gson != null) {
-            gsonString = gson.toJson(obj);
-        }
-        return gsonString;
+    public static String getJsonString(Object obj){
+        return gson.toJson(obj);
     }
 
-    /**
-     * 将JSON转为POJO
-     */
-    public static <T> T fromJson(String json, Class<T> tClass) {
-        T t = null;
-        if (gson != null) {
-            t = gson.fromJson(json, tClass);
-        }
-        return t;
+    public static <T> T toBean(String json, Class<T> clz){
+
+        return gson.fromJson(json, clz);
     }
 
-
-    /**
-     * 转成list
-     * 泛型在编译期类型被擦除导致报错
-     * @param gsonString
-     * @param cls
-     * @return
-     */
-    public static <T> List<T> GsonToList(String gsonString, Class<T> cls) {
-        List<T> list = null;
-        if (gson != null) {
-            list = gson.fromJson(gsonString, new TypeToken<List<T>>() {
-            }.getType());
+    public static <T> Map<String, T> readJson2MapObj(String json, Class<T> clz){
+        Map<String, JsonObject> map = gson.fromJson(json, new TypeToken<Map<String,JsonObject>>(){}.getType());
+        Map<String, T> result = new HashMap<>();
+        for(String key:map.keySet()){
+            result.put(key,gson.fromJson(map.get(key),clz) );
         }
-        return list;
+        return result;
     }
 
-
-    /**
-     * 转成list
-     * 解决泛型问题
-     * @param json
-     * @param cls
-     * @param <T>
-     * @return
-     */
-    public static <T> List<T> jsonToList(String json, Class<T> cls) {
-        Gson gson = new Gson();
-        List<T> list = new ArrayList<T>();
-        JsonArray array = new JsonParser().parse(json).getAsJsonArray();
-        for(final JsonElement elem : array){
-            list.add(gson.fromJson(elem, cls));
-        }
-        return list;
+    public static <T> T json2Obj(String json, Class<T> clz){
+        return gson.fromJson(json,clz);
     }
 
-
-
-
-    /**
-     * 转成list中有map的
-     *
-     * @param gsonString
-     * @return
-     */
-    public static <T> List<Map<String, T>> GsonToListMaps(String gsonString) {
-        List<Map<String, T>> list = null;
-        if (gson != null) {
-            list = gson.fromJson(gsonString,
-                    new TypeToken<List<Map<String, T>>>() {
-                    }.getType());
-        }
-        return list;
-    }
-
-
-    /**
-     * 转成map的
-     *
-     * @param gsonString
-     * @return
-     */
-    public static <T> Map<String, T> GsonToMaps(String gsonString) {
-        Map<String, T> map = null;
-        if (gson != null) {
-            map = gson.fromJson(gsonString, new TypeToken<Map<String, T>>() {
-            }.getType());
-        }
+    public static Map<String, Object> toMap(String json){
+        Map<String, Object> map = gson.fromJson(json, new TypeToken<Map<String,Object>>(){}.getType());
         return map;
     }
 
-    public static void main(String[] args) {
-        List<String> list = new ArrayList<>();
-        list.add("1");
-        list.add("2");
-        list.add("3");
-        list.add("4");
-        list.add("5");
-        //LIST转JSON
-        String json = JsonUtil.toJson(list);
-        System.out.println("-----" + json);
+    public static Map<String,String> readJsonStrMap(String json) {
+        Map<String, JsonObject> map = gson.fromJson(json, new TypeToken<Map<String,JsonObject>>(){}.getType());
+        Map<String,String> result = new HashMap<>();
+        for(String key:map.keySet()){
+            result.put(key,gson.fromJson(map.get(key),String.class) );
+        }
+        return result;
+    }
 
-        //json转LIST
-        list = JsonUtil.fromJson(json, List.class);
+    public static Map<byte[], byte[]> readJsonByteMap(String json) {
+        Map<String, JsonPrimitive> map = gson.fromJson(json, new TypeToken<Map<String,JsonPrimitive>>(){}.getType());
+        Map<byte[], byte[]> vmap = new HashMap<>();
+        for(String key:map.keySet()){
+            vmap.put(key.getBytes(),gson.fromJson(map.get(key),String.class).getBytes() );
+        }
+        return vmap;
+
+    }
+
+
+    public static <T> List<T> readJson2Array(String json, Class<T> clz){
+        JsonArray array = new JsonParser().parse(json).getAsJsonArray();
+        List<T> list  = new ArrayList<>();
+        for(final JsonElement elem : array){
+            list.add(gson.fromJson(elem, (Type)clz));
+        }
+        return list;
+    }
+
+
+    public static void main(String[] args) {
+        String json="{\"snapshots\":[{\"snapshot\":\"snapshot_129\",\"uuid\":\"kaM9ip2GQoCsT3wn38OcsQ\",\"version_id\":5040399,\"version\":\"5.4.3\",\"indices\":[\"metricbeat-2018.01.04\",\"metricbeat-2018.01.03\",\"metricbeat-2017.12.11\",\"metricbeat-2017.12.23\",\"metricbeat-2018.01.29\",\"metricbeat-2017.12.17\",\"metricbeat-2017.12.05\",\"metricbeat-2018.01.26\",\"metricbeat-2017.12.16\",\"metricbeat-2017.12.30\",\"metricbeat-2017.12.29\"],\"state\":\"SUCCESS\",\"duration_in_millis\":4310,\"failures\":[],\"shards\":{\"total\":321,\"failed\":0,\"successful\":321}}]}";
+
+        System.out.println(toMap(json));
     }
 }

@@ -18,6 +18,6 @@ public class CreateJson {
         merchantRequest.setAmount("10000");
         merchantRequest.setMerchantId("10000222");
         merchantRequest.setOrderId(RandomHelper.uuid());
-        log.info("merchantRequest----json:{}", JsonUtil.toJson(merchantRequest));
+        log.info("merchantRequest----json:{}", JsonUtil.getJsonString(merchantRequest));
     }
 }

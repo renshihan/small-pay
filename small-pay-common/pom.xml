@@ -11,9 +11,6 @@
 
     <artifactId>small-pay-common</artifactId>
     <packaging>pom</packaging>
-    <modules>
-        <module>small-pay-common-redis</module>
-    </modules>
     <dependencies>
 
         <dependency>
