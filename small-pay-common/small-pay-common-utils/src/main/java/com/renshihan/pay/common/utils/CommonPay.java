@@ -1,4 +1,4 @@
-package com.renshihan.pay.common;
+package com.renshihan.pay.common.utils;
 
 /**
  * @author renshihan@winchannel.net

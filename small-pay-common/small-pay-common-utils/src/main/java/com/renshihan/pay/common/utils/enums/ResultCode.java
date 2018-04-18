@@ -1,4 +1,4 @@
-package com.renshihan.pay.common.enums;
+package com.renshihan.pay.common.utils.enums;
 
 /**
  * 系统返回码

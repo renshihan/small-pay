@@ -1,7 +1,7 @@
-package com.renshihan.pay.common.exception;
+package com.renshihan.pay.common.utils.exception;
 
-import com.renshihan.pay.common.enums.NoChannelExceptionCodes;
-import com.renshihan.pay.common.enums.ResultCode;
+
+import com.renshihan.pay.common.utils.enums.NoChannelExceptionCodes;
 
 public class NoChannelException extends RuntimeException {
     private String code;

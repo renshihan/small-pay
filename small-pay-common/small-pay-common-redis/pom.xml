@@ -3,16 +3,18 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>small-pay</artifactId>
+        <artifactId>small-pay-common</artifactId>
         <groupId>com.renshihan.pay</groupId>
         <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>small-pay-common</artifactId>
-    <modules>
-        <module>small-pay-common-utils</module>
-        <module>small-pay-common-redis</module>
-    </modules>
-    <packaging>pom</packaging>
+
+    <artifactId>small-pay-common-redis</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

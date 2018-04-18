@@ -1,9 +1,6 @@
 package com.renshihan.pay.common.utils;
 import org.apache.commons.codec.digest.DigestUtils;
 
-import java.nio.charset.Charset;
-import java.security.MessageDigest;
-
 /**
  * 
  * 

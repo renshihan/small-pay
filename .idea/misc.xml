@@ -7,11 +7,12 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/small-pay-common/pom.xml" />
+        <option value="$PROJECT_DIR$/small-pay-common/small-pay-common-redis/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
-        <option value="$PROJECT_DIR$/small-pay-common/small-pay-common-redis/pom.xml" />
         <option value="$PROJECT_DIR$/small-pay-feign/pom.xml" />
       </set>
     </option>
