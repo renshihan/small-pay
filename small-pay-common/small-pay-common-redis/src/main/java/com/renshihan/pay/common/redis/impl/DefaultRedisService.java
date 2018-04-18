@@ -3,6 +3,13 @@ package com.renshihan.pay.common.redis.impl;
 
 
 import com.renshihan.pay.common.redis.RedisService;
+import com.renshihan.pay.common.utils.JsonUtil;
+import org.springframework.dao.DataAccessException;
+import org.springframework.data.redis.connection.RedisConnection;
+import org.springframework.data.redis.core.RedisCallback;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.RedisSerializer;
+import org.springframework.util.Assert;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
@@ -10,13 +17,12 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by xiaour.github.com on 2017/11/8.
  */
-public class RedisServiceImpl implements RedisService {
+public class DefaultRedisService extends RedisService {
+    public DefaultRedisService(RedisTemplate<String, ?> redisTemplate) {
+        super(redisTemplate);
+    }
 
     private static int seconds=3600*24;
-
-    @Autowired
-    private RedisTemplate<String, ?> redisTemplate;
-
     @Override
     public boolean set(final String key, final String value) throws Exception {
         Assert.hasText(key,"Key is not empty.");
@@ -30,7 +36,7 @@ public class RedisServiceImpl implements RedisService {
         });
         return result;
     }
-
+    @Override
     public String get(final String key) throws Exception {
         Assert.hasText(key,"Key is not empty.");
         String result = redisTemplate.execute(new RedisCallback<String>() {
@@ -43,7 +49,7 @@ public class RedisServiceImpl implements RedisService {
         });
         return result;
     }
-
+    @Override
     public void del(final String key) throws Exception {
         Assert.hasText(key,"Key is not empty.");
 
@@ -55,14 +61,10 @@ public class RedisServiceImpl implements RedisService {
             }
         });
     }
-
-
-
     @Override
     public boolean expire(final String key, long expire) {
         return redisTemplate.expire(key, expire, TimeUnit.SECONDS);
     }
-
     @Override
     public <T> boolean setList(String key, List<T> list) throws Exception {
         Assert.hasText(key,"Key is not empty.");
@@ -70,7 +72,6 @@ public class RedisServiceImpl implements RedisService {
         String value = JsonUtil.getJsonString(list);
         return set(key,value);
     }
-
     @Override
     public <T> List<T> getList(String key, Class<T> clz)  throws Exception {
 
@@ -83,7 +84,6 @@ public class RedisServiceImpl implements RedisService {
         }
         return null;
     }
-
     @Override
     public long lpush(final String key, Object obj)throws Exception {
         Assert.hasText(key,"Key is not empty.");
@@ -99,7 +99,6 @@ public class RedisServiceImpl implements RedisService {
         });
         return result;
     }
-
     @Override
     public long rpush(final String key, Object obj) throws Exception {
         Assert.hasText(key,"Key is not empty.");
@@ -115,7 +114,6 @@ public class RedisServiceImpl implements RedisService {
         });
         return result;
     }
-
     @Override
     public void hmset(String key, Object obj)  throws Exception {
         Assert.hasText(key,"Key is not empty.");
@@ -130,7 +128,6 @@ public class RedisServiceImpl implements RedisService {
             }
         });
     }
-
     @Override
     public <T> T hget(String key, Class<T> clz)  throws Exception {
         Assert.hasText(key,"Key is not empty.");
@@ -153,7 +150,6 @@ public class RedisServiceImpl implements RedisService {
             }
         });
     }
-
     @Override
     public<T> List<T> hmGetAll(String key, Class<T> clz) throws Exception {
         Assert.hasText(key,"Key is not empty.");
@@ -179,7 +175,6 @@ public class RedisServiceImpl implements RedisService {
             }
         });
     }
-
     @Override
     public String lpop(final String key) throws Exception {
         Assert.hasText(key,"Key is not empty.");
@@ -194,4 +189,5 @@ public class RedisServiceImpl implements RedisService {
         });
         return result;
     }
+
 }

@@ -36,7 +36,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>com.renshihan.pay</groupId>
+            <artifactId>small-pay-common-redis</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
