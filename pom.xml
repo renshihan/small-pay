@@ -9,7 +9,7 @@
 	<modules>
 		<module>small-pay-core</module>
 		<module>small-pay-server</module>
-		<!--<module>small-pay-common</module>-->
+		<module>small-pay-common</module>
 		<module>small-pay-frame</module>
         <module>small-pay-channel</module>
         <module>small-pay-gateway</module>
@@ -48,11 +48,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.renshihan.pay</groupId>
-			<artifactId>small-pay-common-utils</artifactId>
-			<version>1.0.0</version>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>

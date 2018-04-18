@@ -21,5 +21,11 @@
             <artifactId>small-pay-domain</artifactId>
             <version>1.0.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.renshihan.pay</groupId>
+            <artifactId>small-pay-common-utils</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
 </project>

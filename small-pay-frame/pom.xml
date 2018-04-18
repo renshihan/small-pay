@@ -17,6 +17,12 @@
             <artifactId>small-pay-core</artifactId>
             <version>1.0.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.renshihan.pay</groupId>
+            <artifactId>small-pay-common-utils</artifactId>
+            <version>1.0.0</version>
+        </dependency>
         <!--关于渠道-->
         <dependency>
             <groupId>com.renshihan.pay</groupId>
