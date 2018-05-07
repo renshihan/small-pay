@@ -4,11 +4,13 @@ package com.renshihan.pay.common.redis.impl;
 
 import com.renshihan.pay.common.redis.RedisService;
 import com.renshihan.pay.common.utils.JsonUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.RedisSerializer;
+import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
 import java.util.*;
@@ -17,16 +19,15 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by xiaour.github.com on 2017/11/8.
  */
+@Component
 public class DefaultRedisService extends RedisService {
-    public DefaultRedisService(RedisTemplate<String, ?> redisTemplate) {
-        super(redisTemplate);
-    }
-
+    @Autowired
+    private RedisTemplate<String, ?> redisTemplate;
     private static int seconds=3600*24;
     @Override
     public boolean set(final String key, final String value) throws Exception {
         Assert.hasText(key,"Key is not empty.");
-        boolean result = redisTemplate.execute(new RedisCallback<Boolean>() {
+         boolean result = redisTemplate.execute(new RedisCallback<Boolean>() {
             @Override
             public Boolean doInRedis(RedisConnection connection) throws DataAccessException {
                 RedisSerializer<String> serializer = redisTemplate.getStringSerializer();

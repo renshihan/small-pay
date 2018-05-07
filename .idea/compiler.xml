@@ -31,6 +31,7 @@
       <module name="small-pay-gateway" target="1.8" />
       <module name="small-pay-security" target="1.8" />
       <module name="small-pay-server" target="1.8" />
+      <module name="small-pay-test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

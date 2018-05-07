@@ -14,5 +14,6 @@
     <file url="file://$PROJECT_DIR$/small-pay-gateway" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/small-pay-security" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/small-pay-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/small-pay-test" charset="UTF-8" />
   </component>
 </project>

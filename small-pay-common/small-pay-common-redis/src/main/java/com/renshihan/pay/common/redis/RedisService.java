@@ -10,13 +10,6 @@ import java.util.List;
  */
 @Data
 public abstract class RedisService {
-
-     protected RedisTemplate<String, ?> redisTemplate;
-
-     public RedisService(RedisTemplate<String, ?> redisTemplate) {
-          this.redisTemplate = redisTemplate;
-     }
-
      public abstract boolean set(String key, String value) throws Exception;
      public abstract String get(String key) throws Exception;
 
