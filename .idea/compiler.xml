@@ -23,6 +23,7 @@
       <module name="small-pay" target="1.8" />
       <module name="small-pay-channel" target="1.8" />
       <module name="small-pay-common" target="1.8" />
+      <module name="small-pay-common-condition" target="1.8" />
       <module name="small-pay-common-redis" target="1.8" />
       <module name="small-pay-common-utils" target="1.8" />
       <module name="small-pay-core" target="1.8" />

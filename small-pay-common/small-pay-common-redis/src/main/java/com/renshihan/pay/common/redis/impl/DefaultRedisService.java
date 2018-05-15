@@ -19,9 +19,11 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by xiaour.github.com on 2017/11/8.
  */
-@Component
 public class DefaultRedisService extends RedisService {
-    @Autowired
+    public DefaultRedisService(RedisTemplate<String, ?> redisTemplate) {
+        this.redisTemplate = redisTemplate;
+    }
+
     private RedisTemplate<String, ?> redisTemplate;
     private static int seconds=3600*24;
     @Override

@@ -13,4 +13,6 @@ public class ChannelRequest {
     //通道请求ID
     private String channelRequestId;
     //到达通道后请求
+
+
 }

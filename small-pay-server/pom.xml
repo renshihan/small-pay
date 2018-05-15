@@ -13,15 +13,15 @@
 
     <dependencies>
 
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
-            </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-feign</artifactId>
-            </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.renshihan.pay</groupId>
             <artifactId>small-pay-core</artifactId>
@@ -45,6 +45,12 @@
             <groupId>com.renshihan.pay</groupId>
             <artifactId>small-pay-common-utils</artifactId>
             <version>1.0.0</version>
+        </dependency>
+        <!--jarslink-->
+        <dependency>
+            <groupId>com.alipay.jarslink</groupId>
+            <artifactId>jarslink-api</artifactId>
+            <version>1.5.0.20180213</version>
         </dependency>
     </dependencies>
     <build>
