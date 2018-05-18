@@ -10,6 +10,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>small-pay-frame</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>small-pay-frame-jarslink</module>
+        <module>small-pay-frame-code</module>
+    </modules>
     <dependencies>
 
         <dependency>

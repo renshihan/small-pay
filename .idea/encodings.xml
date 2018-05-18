@@ -2,7 +2,7 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/small-pay-channel" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/small-pay-bank-client" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/small-pay-common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/small-pay-common/small-pay-common-condition" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/small-pay-common/small-pay-common-redis" charset="UTF-8" />
@@ -10,8 +10,11 @@
     <file url="file://$PROJECT_DIR$/small-pay-core" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/small-pay-domain" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/small-pay-frame" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/small-pay-frame/small-pay-frame-code" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/small-pay-frame/small-pay-frame-jarslink" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/small-pay-gateway" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/small-pay-security" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/small-pay-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/small-pay-zhifubao-client" charset="UTF-8" />
   </component>
 </project>

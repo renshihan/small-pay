@@ -3,16 +3,18 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/small-pay.iml" filepath="$PROJECT_DIR$/small-pay.iml" />
-      <module fileurl="file://$PROJECT_DIR$/small-pay-channel/small-pay-channel.iml" filepath="$PROJECT_DIR$/small-pay-channel/small-pay-channel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/small-pay-bank-client/small-pay-bank-client.iml" filepath="$PROJECT_DIR$/small-pay-bank-client/small-pay-bank-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/small-pay-common/small-pay-common.iml" filepath="$PROJECT_DIR$/small-pay-common/small-pay-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/small-pay-common/small-pay-common-redis/small-pay-common-redis.iml" filepath="$PROJECT_DIR$/small-pay-common/small-pay-common-redis/small-pay-common-redis.iml" />
       <module fileurl="file://$PROJECT_DIR$/small-pay-common/small-pay-common-utils/small-pay-common-utils.iml" filepath="$PROJECT_DIR$/small-pay-common/small-pay-common-utils/small-pay-common-utils.iml" />
-      <module fileurl="file://$PROJECT_DIR$/small-pay-core/small-pay-core.iml" filepath="$PROJECT_DIR$/small-pay-core/small-pay-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/small-pay-domain/small-pay-domain.iml" filepath="$PROJECT_DIR$/small-pay-domain/small-pay-domain.iml" />
       <module fileurl="file://$PROJECT_DIR$/small-pay-frame/small-pay-frame.iml" filepath="$PROJECT_DIR$/small-pay-frame/small-pay-frame.iml" />
+      <module fileurl="file://$PROJECT_DIR$/small-pay-frame/small-pay-frame-code/small-pay-frame-code.iml" filepath="$PROJECT_DIR$/small-pay-frame/small-pay-frame-code/small-pay-frame-code.iml" />
+      <module fileurl="file://$PROJECT_DIR$/small-pay-frame/small-pay-frame-jarslink/small-pay-frame-jarslink.iml" filepath="$PROJECT_DIR$/small-pay-frame/small-pay-frame-jarslink/small-pay-frame-jarslink.iml" />
       <module fileurl="file://$PROJECT_DIR$/small-pay-gateway/small-pay-gateway.iml" filepath="$PROJECT_DIR$/small-pay-gateway/small-pay-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/small-pay-security/small-pay-security.iml" filepath="$PROJECT_DIR$/small-pay-security/small-pay-security.iml" />
       <module fileurl="file://$PROJECT_DIR$/small-pay-server/small-pay-server.iml" filepath="$PROJECT_DIR$/small-pay-server/small-pay-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/small-pay-zhifubao-client/small-pay-zhifubao-client.iml" filepath="$PROJECT_DIR$/small-pay-zhifubao-client/small-pay-zhifubao-client.iml" />
     </modules>
   </component>
 </project>

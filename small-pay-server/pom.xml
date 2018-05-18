@@ -46,12 +46,7 @@
             <artifactId>small-pay-common-utils</artifactId>
             <version>1.0.0</version>
         </dependency>
-        <!--jarslink-->
-        <dependency>
-            <groupId>com.alipay.jarslink</groupId>
-            <artifactId>jarslink-api</artifactId>
-            <version>1.5.0.20180213</version>
-        </dependency>
+
     </dependencies>
     <build>
         <plugins>

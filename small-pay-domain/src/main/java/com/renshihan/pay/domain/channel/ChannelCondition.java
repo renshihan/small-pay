@@ -8,5 +8,6 @@ import lombok.Data;
  */
 @Data
 public class ChannelCondition {
+    private String token;   //寄存bankRequest数据结构的token码
 
 }
